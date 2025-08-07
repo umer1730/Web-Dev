@@ -1,0 +1,56 @@
+.Ac{
+    font-size: 21px;
+    font-weight: bold;
+}
+body{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.palegreen{
+    background-color: palegreen;
+    font-size: large;
+}
+.sup{
+    font-size: 12px;
+}
+.H, .He, .Li, .Be, .B, .C, .N, .O, .F, .Ne, .Na, .Mg, .Al, .Si, .P, .S, .Cl, .Ar, .K, .Ca, .Sc, .Ti, .V, .Cr, .Mn, .Fe, .Co, .Ni, .Cu, .Zn, .Ga, .Ge, .As, .Se, .Br, .Kr, .Rb, .Sr, .Y, .Zr, .Nb, .Mo, .Tc, .Ru, .Rh, .Pd, .Ag, .Cd, .In, .Sn, .Sb, .Te, .I, .Xe, .Cs, .Ba, .Hf, .Ta, .W, .Re, .Os, .Ir, .Pt, .Au, .Hg, .Tl, .Pb, .Bi, .Po, .At, .Rn, .Fr, .Ra, .Rf, .Db, .Sg, .Bh, .Hs, .Mt, .Ds, .Rg, .Cn, .Uut, .Fl, .Uup, .Lv, .Uus, .Uuo, .La-Lu, .Ac-Lr{
+    font-size: 22px;
+    font-weight: bold;
+}
+.La, .Ce, .Pr, .Nd, .Pm, .Sm, .Eu, .Gd, .Tb, .Dy, .Ho, .Er, .Tm, .Yb, .Lu, .Ac, .Th, .Pa, .U, .Np, .Pu, .Am, .Cm, .Bk, .Cf, .Es, .Fm, .Md, .No, .Lr{
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+}
+.He{
+    grid-column: 18;
+}
+td{
+    text-align: center;
+    height: 55px;
+    width: 55px;
+}
+.name{
+    font-size: 10px;
+}
+.pink{
+    background-color:lightpink;
+}
+.red{
+background-color: #ff6666;;
+}
+.orange{
+    background-color: orange;
+}
+.yellow{
+    background-color: yellow;
+}
+.blue{
+    background-color: skyblue;
+}
+.purple{
+    background-color: plum;
+}
+.sand{
+    background-color:rgb(183, 189, 195);
+}
