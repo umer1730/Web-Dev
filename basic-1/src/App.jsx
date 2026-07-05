@@ -9,7 +9,8 @@ const field = "AI";
 function App() {
   return (
     <>
-    <Basic/>
+    {/*import this from basic file */}
+    <Basic/> 
     {/* this is heading */}
     <h1>My name is {firstname} {lastname}</h1>
     <h2>I am from {city.toUpperCase()}</h2>
