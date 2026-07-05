@@ -4,18 +4,29 @@ import "./App.css";
 function App() {
   const [task, setTask] = useState("");
   const [todos, setTodos] = useState([]);
+  const [editIndex, setEditIndex] = useState(null);
 
-  // Add Todo
+  // Add or Update Todo
   function addTodo() {
     if (task.trim() === "") return;
 
-    setTodos([
-      ...todos,
-      {
-        text: task,
-        completed: false,
-      },
-    ]);
+    if (editIndex !== null) {
+      const updatedTodos = [...todos];
+
+      updatedTodos[editIndex].text = task;
+
+      setTodos(updatedTodos);
+
+      setEditIndex(null);
+    } else {
+      setTodos([
+        ...todos,
+        {
+          text: task,
+          completed: false,
+        },
+      ]);
+    }
 
     setTask("");
   }
@@ -29,7 +40,7 @@ function App() {
     setTodos(updatedTodos);
   }
 
-  // Toggle Complete
+  // Complete / Incomplete
   function toggleComplete(indexToToggle) {
     const updatedTodos = todos.map((todo, index) => {
       if (index === indexToToggle) {
@@ -45,6 +56,12 @@ function App() {
     setTodos(updatedTodos);
   }
 
+  // Edit Todo
+  function editTodo(index) {
+    setTask(todos[index].text);
+    setEditIndex(index);
+  }
+
   return (
     <div className="container">
       <h1>Todo App</h1>
@@ -56,7 +73,9 @@ function App() {
         onChange={(e) => setTask(e.target.value)}
       />
 
-      <button onClick={addTodo}>Add</button>
+      <button onClick={addTodo}>
+        {editIndex !== null ? "Update" : "Add"}
+      </button>
 
       <ul>
         {todos.map((todo, index) => (
@@ -71,13 +90,25 @@ function App() {
                 flex: 1,
               }}
             >
-              {todo.completed ? "Yes " : "No "}
+              {todo.completed ? "✅ " : "❌ "}
               {todo.text}
             </span>
 
-            <button onClick={() => deleteTodo(index)}>
-              Delete
-            </button>
+            <div className="btn-group">
+              <button
+                className="edit-btn"
+                onClick={() => editTodo(index)}
+              >
+                Edit
+              </button>
+
+              <button
+                className="delete-btn"
+                onClick={() => deleteTodo(index)}
+              >
+                Delete
+              </button>
+            </div>
           </li>
         ))}
       </ul>

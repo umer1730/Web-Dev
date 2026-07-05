@@ -1,16 +1,16 @@
 body {
   margin: 0;
+  background: #f5f5f5;
   font-family: Arial, sans-serif;
-  background: #f4f4f4;
 }
 
 .container {
-  width: 500px;
+  width: 550px;
   margin: 50px auto;
   background: white;
   padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.2);
 }
 
 h1 {
@@ -19,13 +19,13 @@ h1 {
 
 input {
   width: 70%;
-  padding: 10px;
+  padding: 12px;
   font-size: 16px;
 }
 
 button {
-  padding: 10px 15px;
-  margin-left: 10px;
+  padding: 10px 16px;
+  margin-left: 8px;
   cursor: pointer;
 }
 
@@ -35,23 +35,41 @@ ul {
 
 li {
   list-style: none;
-  margin-top: 12px;
-  padding: 12px;
-  background: #f2f2f2;
-  border-radius: 8px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  margin-top: 15px;
+  padding: 12px;
+
+  background: #f2f2f2;
+  border-radius: 8px;
 }
 
-li button {
+.btn-group {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn {
+  background: #f59e0b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.delete-btn {
   background: crimson;
   color: white;
   border: none;
   border-radius: 5px;
 }
 
-li button:hover {
+.edit-btn:hover {
+  background: #d97706;
+}
+
+.delete-btn:hover {
   background: darkred;
 }
