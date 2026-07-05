@@ -6,14 +6,18 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   function addTodo() {
+    if (task.trim() === "") return;
+
     setTodos([...todos, task]);
     setTask("");
   }
 
-  function deleteTodo(indexTodelete){
-    const updatedTodos = todos.filter((todo,index) =>{
-      return index !== indexTodelete;
-    })
+  function deleteTodo(indexToDelete) {
+    const updatedTodos = todos.filter((todo, index) => {
+      return index !== indexToDelete;
+    });
+
+    setTodos(updatedTodos);
   }
 
   return (
@@ -22,7 +26,7 @@ function App() {
 
       <input
         type="text"
-        placeholder="Enter a task"
+        placeholder="Enter Task"
         value={task}
         onChange={(e) => setTask(e.target.value)}
       />
@@ -31,7 +35,13 @@ function App() {
 
       <ul>
         {todos.map((todo, index) => (
-          <li key={index}>{todo}</li>
+          <li key={index}>
+            {todo}
+
+            <button onClick={() => deleteTodo(index)}>
+              Delete
+            </button>
+          </li>
         ))}
       </ul>
     </div>
