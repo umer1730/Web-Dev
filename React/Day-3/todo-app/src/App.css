@@ -1,19 +1,57 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+}
+
+.container {
+  width: 500px;
+  margin: 50px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+h1 {
+  text-align: center;
+}
+
+input {
+  width: 70%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+ul {
+  padding: 0;
+}
+
 li {
+  list-style: none;
+  margin-top: 12px;
+  padding: 12px;
+  background: #f2f2f2;
+  border-radius: 8px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  margin-top: 10px;
-  padding: 10px;
-  background: #f3eded;
-  border-radius: 8px;
 }
 
 li button {
-  background: red;
+  background: crimson;
   color: white;
   border: none;
-  padding: 8px 14px;
-  cursor: pointer;
   border-radius: 5px;
+}
+
+li button:hover {
+  background: darkred;
 }
