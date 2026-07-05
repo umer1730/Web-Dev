@@ -6,6 +6,9 @@ import Reading from "./reading_data";
 import Submission from "./form_submit";
 import Multiple from "./multiple_inputs";
 import Form from "./login_form";
+import Controlled from "./controlled_comp";
+import Live from "./live_counter";
+import Search from "./Live_search";
 
 const students = [
     {id: 1, name: "Ali", age: 22},
@@ -39,6 +42,12 @@ function App(){
       <Multiple />
       <hr />
       <Form />
+      <hr />
+      <Controlled />
+      <hr />
+      <Live />
+      <hr />
+      <Search />
     </>
   )
 }  
