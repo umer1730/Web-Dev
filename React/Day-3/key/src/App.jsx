@@ -9,6 +9,9 @@ import Form from "./login_form";
 import Controlled from "./controlled_comp";
 import Live from "./live_counter";
 import Search from "./Live_search";
+import LoginForm from "./Login";
+import Registration from "./registration_form";
+
 
 const students = [
     {id: 1, name: "Ali", age: 22},
@@ -48,6 +51,10 @@ function App(){
       <Live />
       <hr />
       <Search />
+      <hr />
+      <LoginForm />
+      <hr />
+      <Registration />
     </>
   )
 }  
