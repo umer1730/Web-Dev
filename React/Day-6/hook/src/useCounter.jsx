@@ -6,8 +6,11 @@ function useCounter(){
     function increment(){
         setCount(count + 1)
     }
+    function decrement(){
+        setCount(count - 1)
+    }
     return {
-        count,increment,
+        count,increment,decrement
     }
 }
 

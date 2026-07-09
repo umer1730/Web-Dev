@@ -3,7 +3,7 @@ import About from "./about"
 
 
 function App() {
-  const {count, increment} = useCounter(0)
+  const {count, increment,decrement} = useCounter(0)
 
   return (
           <>
@@ -11,6 +11,9 @@ function App() {
             <h1>{count}</h1>
             <button onClick={increment}>
               Increment
+            </button>
+            <button onClick={decrement}>
+              Decrement
             </button>
 
             <hr />
