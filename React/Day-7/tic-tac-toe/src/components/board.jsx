@@ -32,10 +32,12 @@ function Board() {
     return null;
   }
 
-  const winner = checkWinner(board);
+  const winner = checkWinner(board)
+  const isDraw = !winner && board.every((square) => square !== null)
+
 
   function handleClick(index) {
-    if (winner || board[index] !== null) return;
+    if (board[index] || winner) return;
 
     const newBoard = [...board];
 
@@ -45,12 +47,28 @@ function Board() {
 
     setIsXTurn(!isXTurn);
   }
+  function restartGame(){
+    setBoard(Array(9).fill(null))
+    setIsXTurn(true)
+  }
 
   return (
     <>
+      {!winner && !isDraw && (
+        <h2>
+            Current Turn: {isXTurn ? "X" : "O"}
+        </h2>
+      )}  
+
       {winner && (
         <h2 className="winner">
           🏆 Winner: {winner}
+        </h2>
+      )}
+
+      {isDraw && (
+        <h2 className="draw">
+            Match Draw!
         </h2>
       )}
 
@@ -63,6 +81,10 @@ function Board() {
           />
         ))}
       </div>
+      <button className="restart"
+      onClick={restartGame}>
+        Restart Game
+      </button>
     </>
   );
 }

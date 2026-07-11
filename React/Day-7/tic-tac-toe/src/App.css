@@ -6,17 +6,16 @@ body {
 
 h1 {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
-.winner {
+h2 {
   text-align: center;
-  color: green;
 }
 
 .board {
   width: 306px;
-  margin: 30px auto;
+  margin: 20px auto;
 
   display: grid;
   grid-template-columns: repeat(3, 100px);
@@ -29,12 +28,32 @@ h1 {
 
   font-size: 40px;
   font-weight: bold;
+
   cursor: pointer;
 
-  border: 2px solid #444;
+  border: 2px solid #333;
   background: white;
 }
 
 .square:hover {
   background: #ddd;
+}
+
+.restart {
+  display: block;
+  margin: 20px auto;
+
+  padding: 12px 20px;
+
+  font-size: 18px;
+
+  cursor: pointer;
+}
+
+.winner {
+  color: green;
+}
+
+.draw {
+  color: orange;
 }
