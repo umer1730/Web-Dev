@@ -11,7 +11,7 @@ import Post from './fetch_post';
 import One from './fetch_one';
 import Album from './fetch_album';
 import Load from './load_data';
-
+import Error from './error_handle';
 
 function App() {
 
@@ -47,6 +47,8 @@ function App() {
       <Album />
       <hr />
       <Load />
+      <hr />
+      <Error />
     </>
    )  
 }
