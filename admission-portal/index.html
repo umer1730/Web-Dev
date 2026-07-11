@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission portal</title>
+</head>
+<link rel="stylesheet" href="style.css">
+ <style>
+   
+</style>
+
+<body>
+    <h1>ADMISSION PORTAL AT UNIVERSITY OF Engineering AND TECHNOLOGY, LAHORE</h1>
+   <form action="action-ab.php" method="POST" target="_blank" enctype="multipart/form-data" autocomplete="off" novalidate>
+    <fieldset>
+    <h2 style="font-size:20px;width: 130px">Personal Data:</h1>
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" name="fname">
+    <label for="mname">Middle name:</label>
+    <input type="text" id="mname" name="mname">
+    <label for="lname">Last name:</label>
+    <input type="text" id="lname" name="lname"><br>
+    <label for="fathername">Father's name:</label><br>
+    <input type="text" id="fathername" name="fathername" ><br>
+    <label for="mothername">Mother's name:</label><br>
+    <input type="text" id="mothername" name="mothername" ><br>
+    <label for="monthlyincome">Family monthly income:</label><br>
+    <input type="text" id="monthlyincome" name="monthlyincome" ><br>
+    <br>
+    
+    <h3 style="font-size:20px;width:70px">Gender:</h3>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label><br>
+    <h4 style="font-size:20px;width: 80px;">Religion:</h4>
+    <label for="cars">Choose a religion:</label>
+  <select id="religion" name="religion" size="3">
+    <option value="Islam">Islam</option>
+    <option value="Christian">Christianity</option>
+    <option value="Hindu">Hinduism</option>
+    <option value="buddhism">Buddhism</option>
+  </select><br><br>
+    <label for="birthday">Birthday:</label>
+    <input type="date" id="birthday" name="birthday"><br><br>
+    <label for="phone">Enter a phone number:</label>
+    <input type="tel" id="phone" name="phone" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+    <label for="email">Enter your email:</label>
+  <input type="email" id="email" name="email"><br>
+  <h5 style="font-size: 20px;width: 180px">Permanent Address:</h5>
+  <label for="paddress">Address:</label>
+    <input type="text" id="paddress" name="paddress">
+    <h6 style="font-size:20px;width: 101px">Nationality:</h6>
+  <label for="nationality">Nationality:</label>
+<select id="nationality" name="nationality">
+  <option value="pakistan">Pakistan</option>
+  <option value="india">India</option>
+  <option value="bangladesh">Bangladesh</option>
+  <option value="usa">United States</option>
+  <option value="uk">United Kingdom</option>
+</select> <br><br>
+  <label for="favsports">Favourite sports:</label>
+    <input type="text" id="favsports" name="favsports"><br><br>
+  <label for="hobby">Hobbies:</label>
+    <input type="text" id="hobby" name="hobby">
+<br> 
+   
+   <h7 style="font-size:22px;width:101px">Qualifications:</h7>
+    <br>
+    <input type="checkbox" id="matric" name="matric" value="matric">
+    <label for="matric">Matric</label>
+    <input type="checkbox" id="o-level" name="o-level" value="o-level">
+    <label for="o-Level">O-Level</label>
+    <input type="checkbox" id="A-level" name="A-level" value="A-level">
+    <label for="A-level">A-Level</label>
+    <input type="checkbox" id="F.Sc (Pre-engineering)" name="F.Sc (Pre-engineering)" value="F.Sc (Pre-engineering)">
+    <label for="F.Sc (Pre-engineering)">F.Sc (Pre-Engineering)</label>
+    <input type="checkbox" id="F.Sc (Pre-medical)" name="F.Sc (Pre-medical)" value="F.Sc (Pre-medical)">
+    <label for="F.Sc (Pre-medical)">F.Sc (Pre-Medical)</label><br><br>
+    <h8 style="font-size: 22px;width:101px">Academic Information:</h8>
+    <br>
+    <label for="matricmarks">Matric / o-level:</label>
+    <input type="number" id="matricmarks" name="matricMarks" min="0" max="1100">
+    <label for="Intermarks">Intermediate / A-level:</label>
+    <input type="number" id="Intermarks" name="Intermarks" min="0" max="1100">
+    <label for="ecatmarks">Ecat marks:</label>
+    <input type="number" id="ecatmarks" name="ecatmarks" min="0" max="400"><br><br>
+       <label for="schoolnamae">School name:</label>
+    <input type="text" id="schoolname" name="schoolname"><br><br>
+       <label for="collegename">College name:</label>
+    <input type="text" id="collegename" name="collegename"><br><br>
+        <label for="myfile">Enter matric result:</label>
+  <input type="file" id="myfile" name="myfile">
+  <br><br>
+  <label for="myfile">Enter Inter result:</label>
+  <input type="file" id="myfile" name="myfile"><br><br>
+  <label for="myfile">Enter E-cat result:</label>
+  <input type="file" id="myfile" name="myfile"><br>
+    <br><br>
+    <br>
+    
+      <label style="font-size:20px;" for="programsoffer">Programs offered:</label>
+   <select id="programsoffer" name="programsoffer">
+  <option value="BSCS">Computer science</option>
+  <option value="BS AI">Artificial Intelligence</option>
+  <option value="BS Cybersecurity">Cybersecurity</option>
+  <option value="BS DS">Data science</option>
+  <option value="BS SE">Software Engineering</option>
+</select> <br><br>
+
+  <label>Enter Some 10-12 Lines about Yourself and why you want to Pursue this Degree:</label>
+    <textarea rows="8" name="aboutYou" placeholder="Enter Some 10 line about Yourself...."></textarea><br>
+      <label for="favcolor">My favorite color:</label>
+  <input type="color" id="favcolor" name="favcolor" value="#ff0"><br>
+    <input type="button" onclick="alert('You are at U.E.T website')" value="Click Me!"><br><br>
+     <input type="reset" value="Reset">
+     <input type="submit" value="Submit">
+     </fieldset>
+</form>
+</body>
+</html>

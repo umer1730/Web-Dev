@@ -1,0 +1,122 @@
+ body {
+            font-family: Arial, sans-serif;
+            background: url("download.jpg") no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        h1 {
+            /* This heading is now outside the form and spans the top of the page */
+            text-align: center;
+            background-color: #004d40;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            font-size: 24px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 6px rgba(224, 21, 21, 0.1);
+        }
+
+        /* The form container now has `margin: auto` for horizontal centering */
+        form {
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(6px);
+            width: 90%; /* Responsive width */
+            max-width: 400px;
+            margin: 20px auto; /* Centers the form horizontally and provides top/bottom margin */
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            /* Key styles for scrolling */
+            max-height: 80vh; /* Set a maximum height relative to the viewport height */
+            overflow-y: auto; /* Enable vertical scrolling if content overflows */
+        }
+
+        fieldset {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #ffffff;
+        }
+
+        legend, h2, h3, h4, h5, h6, h7, h8 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #00695c;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0 5px;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="file"],
+        input[type="color"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px 10px;
+            margin-bottom: 10px;
+            border: 1px solid gr;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        select {
+            height: auto;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="submit"],
+        input[type="reset"],
+        input[type="button"] {
+            padding: 10px 20px;
+            margin-top: 10px;
+            margin-right: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            background-color: #00796b;
+            color: white;
+        }
+
+        input[type="reset"] {
+            background-color: #d32f2f;
+            color: white;
+        }
+
+        input[type="button"] {
+            background-color: #1976d2;
+            color: white;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover,
+        input[type="button"]:hover {
+            opacity: 0.9;
+        }
