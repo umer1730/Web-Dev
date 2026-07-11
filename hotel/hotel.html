@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hotel Suites</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header id="navbar"></header>
+
+  <div class="hero">
+    <!-- Optional: add heading here -->
+  </div>
+
+  <!-- Rooms Section -->
+  <section class="rooms" id="rooms">
+    <h2>Our Rooms</h2>
+    <div class="room-list">
+      <div class="room">
+        <img src="hotel/deluxe.jpg" alt="Deluxe Room">
+        <h3>Deluxe Room</h3>
+        <p>A comfortable room with modern amenities.</p>
+        <p class="price">$100 / night</p>
+        <button onclick="bookRoom('Deluxe Room')">Book Now</button>
+      </div>
+
+      <div class="room">
+        <img src="hotel/executive.jpg" alt="Executive Room">
+        <h3>Executive Room</h3>
+        <p>Spacious room for business and leisure.</p>
+        <p class="price">$150 / night</p>
+        <button onclick="bookRoom('Executive Room')">Book Now</button>
+      </div>
+
+      <div class="room">
+        <img src="hotel/Suite.jpg" alt="Suite">
+        <h3>Suite</h3>
+        <p>Luxurious suite with all premium features.</p>
+        <p class="price">$200 / night</p>
+        <button onclick="bookRoom('Suite')">Book Now</button>
+      </div>
+
+      <div class="room">
+        <img src="hotel/double.jpg" alt="Double">
+        <h3>Double</h3>
+        <p>Perfect for two guests with comfort and space.</p>
+        <p class="price">$180 / night</p>
+        <button onclick="bookRoom('Double')">Book Now</button>
+      </div>
+
+      <div class="room">
+        <img src="hotel/single.jpg" alt="Single">
+        <h3>Single</h3>
+        <p>Ideal for solo travelers with a cozy setup.</p>
+        <p class="price">$120 / night</p>
+        <button onclick="bookRoom('Single')">Book Now</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
