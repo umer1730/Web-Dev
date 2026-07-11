@@ -1,0 +1,98 @@
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+}
+
+/* Navbar */
+.navbar {
+  background: #2563eb;
+  color: white;
+  padding: 18px 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+.navbar h2 {
+  margin: 0;
+}
+
+/* Menu */
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Links */
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: yellow;
+}
+
+/* Greeting Card */
+.greeting-card {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+/* Profile Section */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+}
+
+/* Profile Card */
+.profile-card {
+  width: 250px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+}
+
+.profile-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+.footer {
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+  background: #2563eb;
+  color: white;
+}
+
+/* Sections */
+section {
+  padding-top: 80px;
+}
