@@ -13,7 +13,7 @@ function App() {
 
       <ProfileCard
         name = "Ali"
-        profession = "Machine learning Engineer"
+        profession = "Machine Learning Engineer"
         age = {26}
         city = "Islamabad"
       />   
@@ -27,7 +27,7 @@ function App() {
 
       <ProfileCard
         name = "Hamza"
-        profession="Data scientist"
+        profession="Data Scientist"
         age = {28}
         city = "Multan"
       />
