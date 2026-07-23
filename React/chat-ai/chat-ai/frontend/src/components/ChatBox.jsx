@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
-import { saveMessage, getMessages } from "../services/chatService";
+import { useState, useEffect,useRef } from "react";
+import { saveMessage, getMessages,updateConversationTitle } from "../services/chatService";
 import API from "../services/api";
 
-function ChatBox({ currentConversation, user }) {
+function ChatBox({ currentConversation, user,refreshChats }) {
   const [prompt, setPrompt] = useState("");
   const [messages, setMessages] = useState([]);
   const [loading,setLoading] = useState(false);
-
+  const bottomRef = useRef(null)
+  
   const userName =
     user?.email?.split("@")[0] || "User";
 
@@ -20,6 +21,11 @@ function ChatBox({ currentConversation, user }) {
     const data = await getMessages(currentConversation.id);
     setMessages(data);
   }
+
+  useEffect(() => {bottomRef.current?.scrollIntoView({
+    behavior: "smooth",
+  });
+  }, [messages, loading]);
 
   const sendMessage = async () => {
     console.log("Current Conversation:", currentConversation);
@@ -37,6 +43,13 @@ function ChatBox({ currentConversation, user }) {
         "user",
         prompt
       );
+      if (currentConversation.title === "New Chat") {
+        await updateConversationTitle(
+          currentConversation.id,
+          prompt.substring(0,30)
+        )
+        await refreshChats()
+      }
 
       setLoading(true)
       /* Get AI response */
@@ -104,7 +117,8 @@ function ChatBox({ currentConversation, user }) {
             <div className="mr-auto bg-slate-800 text-white p-4 rounded-xl max-w-xs animate-pulse">
                 AI is typing...
             </div>
-        )}
+          )}
+          <div ref={bottomRef}></div>
 
         </div>
       )}

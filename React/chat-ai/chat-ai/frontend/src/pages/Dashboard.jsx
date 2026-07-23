@@ -77,6 +77,20 @@ function Dashboard() {
   setCurrentConversation(newChat);
 }
 
+  async function refreshChats() {
+    const chats = await getConversations(user.id)
+
+    setConversations(chats)
+
+    const updatedCurrent = chats.find(
+      (chat) => chat.id === currentConversation.id
+    )
+
+    if(updatedCurrent){
+      setCurrentConversation(updatedCurrent);
+    }
+  }
+
   if (loading) {
     return (
       <div className="h-screen bg-slate-900 text-white flex items-center justify-center text-2xl">
@@ -85,7 +99,6 @@ function Dashboard() {
     );
   }
 
-  
 
   return (
     <div className="flex h-screen bg-slate-900">
@@ -100,6 +113,7 @@ function Dashboard() {
       <ChatArea
         currentConversation={currentConversation}
         user = {user}
+        refreshChats = {refreshChats}
       />
     </div>
   );
