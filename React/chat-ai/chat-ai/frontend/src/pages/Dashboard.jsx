@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createConversation,getConversations,deleteConversation } from "../services/chatService";
+import { createConversation,getConversations,deleteConversation,renameConversation } from "../services/chatService";
 import { supabase } from "../services/supabase";
 
 import Sidebar from "../components/Sidebar";
@@ -77,6 +77,53 @@ function Dashboard() {
   setCurrentConversation(newChat);
 }
 
+  async function handleDeleteChat(chatId){
+    try{
+      await deleteConversation(chatId);
+
+      const chats = await getConversations(user.id);
+
+      if (chats.length === 0){
+        const newChat = await createConversation(user.id);
+
+        setConversations([newChat]);
+        setCurrentConversation(newChat);
+      }
+      else{
+        setConversations(chats);
+        setCurrentConversation(chats[0])
+      }
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
+
+  async function handleRenameChat(chatId, title) {
+
+  if (!title.trim()) return;
+
+  try {
+
+    await renameConversation(chatId, title);
+
+    const chats = await getConversations(user.id);
+
+    setConversations(chats);
+
+    const updated = chats.find(
+      (c) => c.id === chatId
+    );
+
+    setCurrentConversation(updated);
+
+  } 
+  catch (error) {
+    console.log(error);
+  }
+
+}
+
   async function refreshChats() {
     const chats = await getConversations(user.id)
 
@@ -109,6 +156,8 @@ function Dashboard() {
         setCurrentConversation={setCurrentConversation}
         handleLogout={handleLogout}
         handleNewChat={handleNewChat}
+        handleDeleteChat ={handleDeleteChat}
+        handleRenameChat = {handleRenameChat}
       />
       <ChatArea
         currentConversation={currentConversation}
