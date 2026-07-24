@@ -8,7 +8,7 @@ import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-function ChatBox({ currentConversation, user,refreshChats }) {
+function ChatBox({ currentConversation, user,refreshChats,darkMode }) {
   const [prompt, setPrompt] = useState("");
   const [messages, setMessages] = useState([]);
   const [loading,setLoading] = useState(false);

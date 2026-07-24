@@ -1,4 +1,4 @@
-import { Plus, MessageSquare, LogOut,Trash2,Pencil } from "lucide-react";
+import { Plus, MessageSquare, LogOut,Trash2,Pencil,Sun,Moon } from "lucide-react";
 import { useState } from "react";
 
 
@@ -10,13 +10,25 @@ function Sidebar({
   handleNewChat,
   handleDeleteChat,
   handleRenameChat,
+  darkMode,
+  setDarkMode,
 }) {
 
   const [editingId, setEditingId] = useState(null);
   const [newTitle, setNewTitle] = useState("");
+  const [search,setSearch] = useState("");
+
+  const filteredChats = conversations.filter((chat) =>
+    chat.title.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
-    <div className="w-72 h-screen bg-slate-800 text-white flex flex-col">
+    <div className={`w-72 h-screen flex flex-col ${
+      darkMode
+      ? "bg-slate-800 text-white"
+      : "bg-white text-black border-r"
+      }`}>
+
       <div className="p-4 border-b border-slate-700">
         <button onClick={handleNewChat}
           className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 rounded-lg py-3 transition">
@@ -25,8 +37,18 @@ function Sidebar({
         </button>
       </div>
 
+      <div>
+        <input 
+        type = "text"
+        placeholder="Search Chats"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="w-full bg-slate-700 text-white rounded-lg px-4 py-2 outline-none placeholder:text-slate-400"
+        />
+      </div>
+
       <div className="flex-1 overflow-y-auto p-3">
-        {conversations.map((chat) => (
+        {filteredChats.map((chat) => (
           <div
             key={chat.id}
             className={`flex items-center justify-between rounded-lg px-3 py-2 mb-2 cursor-pointer ${
@@ -80,6 +102,24 @@ function Sidebar({
     </div>
   ))}
     </div>
+    
+      <div className="p-4 border-t border-slate-700">
+        <button
+          onClick={() => setDarkMode(!darkMode)}
+          className="w-full flex items-center justify-center gap-2 bg-slate-700 hover:bg-slate-600 rounded-lg py-3 transition">
+        {darkMode ? (
+        <>
+          <Sun size={18} />
+          Light Mode
+        </>
+        ) : (
+        <>
+          <Moon size={18} />
+          Dark Mode
+        </>
+        )}
+        </button>
+      </div>
 
       <div className="p-4">
         <button onClick={handleLogout}>

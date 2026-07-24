@@ -5,6 +5,7 @@ import { supabase } from "../services/supabase";
 
 import Sidebar from "../components/Sidebar";
 import ChatArea from "../components/ChatArea";
+import {Moon,Sun} from "lucide-react"
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -13,10 +14,24 @@ function Dashboard() {
   const [conversations, setConversations] = useState([]);
   const [currentConversation, setCurrentConversation] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [darkMode,setDarkMode] = useState(
+    localStorage.getItem("theme") !== "light");
 
   useEffect(() => {
     loadDashboard();
   }, []);
+
+  useEffect(() => {
+
+  if (darkMode) {
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("theme", "light");
+  }
+
+  }, [darkMode]);
 
   async function loadDashboard() {
     try {
@@ -148,8 +163,12 @@ function Dashboard() {
 
 
   return (
-    <div className="flex h-screen bg-slate-900">
-      <Sidebar
+    <div className={`flex h-screen ${
+      darkMode
+      ? "bg-slate-900 text-white"
+      : "bg-gray-100 text-black"
+    }`}>
+    <Sidebar
         user={user}
         conversations={conversations}
         currentConversation={currentConversation}
@@ -158,11 +177,14 @@ function Dashboard() {
         handleNewChat={handleNewChat}
         handleDeleteChat ={handleDeleteChat}
         handleRenameChat = {handleRenameChat}
+        darkMode = {darkMode}
+        setDarkMode = {setDarkMode}
       />
       <ChatArea
         currentConversation={currentConversation}
         user = {user}
         refreshChats = {refreshChats}
+        darkMode={darkMode}
       />
     </div>
   );
