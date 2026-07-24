@@ -1,6 +1,7 @@
 import { useState, useEffect,useRef } from "react";
 import { saveMessage, getMessages,updateConversationTitle } from "../services/chatService";
 import API from "../services/api";
+import {Copy,Check} from "lucide-react"
 
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -11,6 +12,7 @@ function ChatBox({ currentConversation, user,refreshChats }) {
   const [prompt, setPrompt] = useState("");
   const [messages, setMessages] = useState([]);
   const [loading,setLoading] = useState(false);
+  const [copyId,setCopyId] = useState(null)
   const bottomRef = useRef(null)
   
   const userName =
@@ -31,6 +33,19 @@ function ChatBox({ currentConversation, user,refreshChats }) {
     behavior: "smooth",
   });
   }, [messages, loading]);
+
+  async function copyMessage(id,text){
+    try{
+      await navigator.clipboard.writeText(text);
+      setCopyId(id);
+      setTimeout(() =>{
+        setCopyId(null);
+      },2000);
+    }
+    catch (error){
+      console.log(error);
+    }
+  }
 
   const sendMessage = async () => {
     console.log("Current Conversation:", currentConversation);
@@ -115,37 +130,59 @@ function ChatBox({ currentConversation, user,refreshChats }) {
                   ? "ml-auto bg-blue-600 text-white"
                   : "mr-auto bg-slate-800 text-white"
               }`}>
-      <div className="prose prose-invert max-w-none">
+            <div className="prose prose-invert max-w-none">
 
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          components={{
-            code({ inline, className, children, ...props }) {
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  code({ inline, className, children, ...props }) {
 
-              const match = /language-(\w+)/.exec(className || "");
+                    const match = /language-(\w+)/.exec(className || "");
 
-              return !inline && match ? (
-                <SyntaxHighlighter
-                  style={oneDark}
-                  language={match[1]}
-                  PreTag="div"
-                  {...props}
-                >
-                  {String(children).replace(/\n$/, "")}
-                </SyntaxHighlighter>
-              ) : (
-                <code
-            className="bg-slate-700 px-1 rounded"
-            {...props}>
-            {children}
-          </code>
-              );
-            },
-          }}>
-          {msg.content}
-        </ReactMarkdown>
+                    return !inline && match ? (
+                      <SyntaxHighlighter
+                        style={oneDark}
+                        language={match[1]}
+                        PreTag="div"
+                        {...props}
+                      >
+                        {String(children).replace(/\n$/, "")}
+                      </SyntaxHighlighter>
+                    ) : (
+                      <code
+                  className="bg-slate-700 px-1 rounded"
+                  {...props}>
+                  {children}
+                </code>
+                    );
+                  },
+                }}>
+                {msg.content}
+              </ReactMarkdown>
+            </div>
+                
+          {msg.role === "assistant" && (
+            <div className="flex justify-end mt-3">
 
-      </div>
+              <button
+                onClick={() => copyMessage(msg.id, msg.content)}
+                className="flex items-center gap-2 text-sm text-slate-300 hover:text-white transition">
+                {copyId === msg.id ? (
+                <>
+                <Check size={16} />
+                  Copied
+                </>
+                ) : (
+                <>
+                <Copy size={16} />
+                  Copy
+                </>
+                )}
+              </button>
+
+             </div>
+          )}
+            
             </div>
           ))}
           {loading && (
