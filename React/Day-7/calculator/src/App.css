@@ -1,0 +1,296 @@
+/* 
+   BODY
+ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#2164D6;
+    overflow:hidden;
+}
+
+/* 
+   APP
+ */
+
+.app{
+
+    position:relative;
+
+    width:100vw;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* 
+   BACKGROUND
+ */
+
+.background{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:1;
+
+}
+
+/* 
+   SHAPES
+ */
+
+.shape{
+
+    position:absolute;
+
+    border:2px solid rgba(255,255,255,.15);
+
+    border-radius:35px;
+
+    animation:rotate 20s linear infinite;
+
+}
+
+/* Shape 1 */
+
+.shape1{
+
+    width:350px;
+
+    height:350px;
+
+    top:-120px;
+
+    left:-120px;
+
+}
+
+/* Shape 2 */
+
+.shape2{
+
+    width:280px;
+
+    height:280px;
+
+    top:70px;
+
+    right:-80px;
+
+}
+
+/* Shape 3 */
+
+.shape3{
+
+    width:240px;
+
+    height:240px;
+
+    left:18%;
+
+    bottom:-80px;
+
+}
+
+/* Shape 4 */
+
+.shape4{
+
+    width:220px;
+
+    height:220px;
+
+    right:18%;
+
+    bottom:50px;
+
+}
+
+/* Shape 5 */
+
+.shape5{
+
+    width:170px;
+
+    height:170px;
+
+    top:40px;
+
+    left:45%;
+
+}
+
+/* Shape 6 */
+
+.shape6{
+
+    width:320px;
+
+    height:320px;
+
+    right:-120px;
+
+    bottom:-120px;
+
+}
+
+/* 
+   SHAPE ANIMATION
+*/
+
+@keyframes rotate{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* 
+   CALCULATOR
+ */
+
+.calculator{
+
+    position:relative;
+
+    z-index:10;
+
+    width:340px;
+
+    padding:20px;
+
+    background:#000;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+
+}
+
+/* 
+   DISPLAY
+ */
+
+input{
+
+    width:100%;
+
+    height:70px;
+
+    margin-bottom:20px;
+
+    padding:10px;
+
+    background:#1b1b1b;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    text-align:right;
+
+    font-size:32px;
+
+    outline:none;
+
+}
+
+/* 
+   BUTTON GRID
+*/
+
+.buttons{
+
+    display:grid;
+    color: blue;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:12px;
+
+}
+
+/* 
+   BUTTONS
+ */
+
+button{
+
+    height:65px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#5b5b5b;
+
+    color:white;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+/* Hover */
+
+button:hover{
+
+    background:#787878;
+
+}
+
+/* Click */
+
+button:active{
+
+    transform:scale(.95);
+
+}
+
+/*
+   TITLE
+*/
+
+h1{
+
+    position:absolute;
+
+    top:35px;
+
+    color:white;
+
+    font-size:38px;
+
+    z-index:10;
+
+}
