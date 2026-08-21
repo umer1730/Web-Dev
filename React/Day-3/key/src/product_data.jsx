@@ -17,9 +17,9 @@ function Product(){
     return(
         <>
             {
-                products.map((products) => (
-                    <div key={products.id}>
-                        <h2>{products.name}</h2>
+                products.map((product) => (
+                    <div key={product.id}>
+                        <h2>{product.name}</h2>
                     </div>
                 ))
             }

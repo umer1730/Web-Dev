@@ -2,7 +2,7 @@ import { useState } from 'react'
 import "./App.css"
 
 function App() {
-  const [showpassword, setShowPassword] = useState(false)
+  const [showpassword, setShowPassword] = useState(false) 
 
   return (
    <div className='container'>
