@@ -1,6 +1,6 @@
 function Navbar() {
   return (
-    <nav className="navbar">
+    <nav className="navbar"> {/* Navigation: jo google ko btata he ke is tag ke andr jo content ha wo website ke important navigation links ha */}
       <h2>NETSOL</h2>
 
       <ul>
